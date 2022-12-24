@@ -1,0 +1,20 @@
+{% extends 'base/main.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static "base/styles/chat.css" %}">
+
+<div class="chat-wrapper">
+    <form class="chat-container">
+        <div class="chat-area"></div>
+        <div class="input-area">
+            <input type="text" class="input-box" placeholder="Type here to chat...">
+            <button type="submit" id="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{{ request.user.username|json_script:"username" }}
+
+<script src="{% static "base/js/ChatSockets.js" %}"></script>
+{% endblock content %}

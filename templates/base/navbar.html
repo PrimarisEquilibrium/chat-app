@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "base/styles/navbar.css" %}">
+
+<div class="navbar-container">
+    <div class="navbar-name">CHATFANATICS</div>
+    <div class="navbar-routes">
+        <a class="navbar-chatroom-route" href="{% url "chat" %}">Global Chat</a>
+    </div>
+    <div class="navbar-buttons">
+        {% if request.user.is_authenticated %}
+            <a class="sign-in-out-button" href="{% url "logout" %}">Log Out</a>
+        {% else %}
+            <a class="sign-in-out-button" href="{% url "login" %}">Log In</a>
+        {% endif %}
+    </div>
+</div>
